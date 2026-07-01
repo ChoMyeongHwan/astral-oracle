@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="신비로운 22장의 메이저 아르카나 카드를 기반으로 당신의 과거, 현재, 미래 운명과 오늘의 운세를 무료로 점쳐보세요.">
+  <title>아스트랄 오라클 | 성운의 계시와 타로</title>
+  
+  <!-- Google Fonts 로드 (스포티/미스티한 Outfit 및 가독성 높은 Noto Sans KR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 몽환적인 코스믹 배경막 -->
+  <div class="court-lines-bg"></div>
+
+  <!-- 우주 배경 효과 (반짝이는 별과 떠다니는 행성) -->
+  <div class="space-background">
+    <div class="twinkle-stars"></div>
+    <div class="nebula-cloud nebula-1"></div>
+    <div class="nebula-cloud nebula-2"></div>
+    <div class="planet planet-gas"></div>
+    <div class="planet planet-ringed"></div>
+    <div class="planet planet-moon"></div>
+  </div>
+
+  <!-- 헤더 영역 -->
+  <header class="app-header">
+    <div class="header-content">
+      <div class="logo-area">
+        <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          <path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        </svg>
+        <h1 id="app-title">아스트랄 오라클</h1>
+      </div>
+      <p class="subtitle">별들의 궤적과 성운의 울림을 따라, 22장의 아르카나가 선사하는 초월적 운명을 매칭해보세요.</p>
+      <button type="button" id="btn-bgm-toggle" class="btn btn-secondary bgm-btn" style="margin-top: 0.5rem; border-radius: 30px; padding: 0.4rem 1.2rem; font-size: 0.8rem; gap: 0.3rem; cursor: pointer; border: 1px solid rgba(212, 175, 55, 0.3);">
+        🔇 신비로운 BGM 켜기
+      </button>
+    </div>
+  </header>
+
+  <!-- 네비게이션 탭 메뉴 -->
+  <nav class="nav-tabs-container">
+    <div class="nav-tabs" role="tablist">
+      <button type="button" id="btn-home" class="nav-tab active" role="tab" aria-selected="true">
+        🔮 홈
+      </button>
+      <button type="button" id="btn-go-three" class="nav-tab" role="tab" aria-selected="false">
+        📐 3카드 스프레드
+      </button>
+      <button type="button" id="btn-go-daily" class="nav-tab" role="tab" aria-selected="false">
+        🌞 오늘의 타로
+      </button>
+      <button type="button" id="btn-go-guide" class="nav-tab" role="tab" aria-selected="false">
+        📖 타로 도감
+      </button>
+    </div>
+  </nav>
+
+  <!-- 메인 레이아웃 프레임 -->
+  <main class="app-container">
+    
+    <!-- 1. 홈 섹션 (Home Section) -->
+    <section id="main-container" class="home-section">
+      <div class="mystic-hero card">
+        <svg class="hero-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <h2 class="hero-title">시공간을 넘어 당신에게 닿는 별들의 계시</h2>
+        <p class="hero-desc">
+          인생의 중요한 교차로에 서 계시거나 오늘 하루의 보이지 않는 운명적 기류가 궁금하신가요? 
+          마음을 한곳에 집중하고, 별들이 수놓은 22장의 초월적 아르카나가 들려주는 깊고 영롱한 목소리에 귀를 기울여 보세요.
+        </p>
+        
+        <div class="hero-grid">
+          <div id="btn-start-three" class="hero-card" tabindex="0" role="button" aria-label="3카드 스프레드 시작하기">
+            <svg class="hero-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <line x1="9" y1="3" x2="9" y2="21"/>
+              <line x1="15" y1="3" x2="15" y2="21"/>
+            </svg>
+            <h3>3카드 스프레드</h3>
+            <p>과거, 현재, 미래의 흐름을 다차원적으로 정밀 분석하여 깊이 있는 해답을 도출합니다.</p>
+          </div>
+          
+          <div id="btn-start-daily" class="hero-card" tabindex="0" role="button" aria-label="오늘의 타로 시작하기">
+            <svg class="hero-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <h3>오늘의 타로</h3>
+            <p>오늘 나에게 찾아올 우주의 에너지와 행운의 조언을 한 장의 카드로 명쾌하게 진단합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 3카드 스프레드 섹션 (3-Card Spread) -->
+    <section id="three-spread-section" class="hidden">
+      <div class="card three-board-container">
+        <div class="section-header-mystic">
+          <h2>📐 과거, 현재, 미래 3카드 스프레드</h2>
+          <p>눈을 감고 마음에 품은 질문에 집중한 뒤, 셔플 후 운명의 카드 3장을 차례대로 선택해 주세요.</p>
+        </div>
+
+        <!-- 타로 배열 보드 -->
+        <div id="three-board" class="tarot-board">
+          <!-- 동적 드로우 카드가 들어갈 자리 -->
+        </div>
+
+        <!-- 조작 버튼 -->
+        <div style="display:flex; gap:1rem;">
+          <button type="button" id="btn-shuffle-three" class="btn btn-primary">
+            🔮 카드 셔플하기
+          </button>
+          <button type="button" id="btn-reveal-three" class="btn btn-primary hidden">
+            ✨ 카드 결과 열기 (Reveal)
+          </button>
+        </div>
+      </div>
+
+      <!-- 해석 텍스트 박스 -->
+      <div id="three-result-box" class="card result-section-mystic hidden">
+        <div class="result-header-mystic">
+          <h3>✍️ 스프레드 종합 운명 분석</h3>
+          <button type="button" id="btn-new-game-three" class="btn btn-secondary">
+            🔄 다시 뽑기
+          </button>
+        </div>
+        <div id="three-readings" class="readings-container">
+          <!-- 스크립트에서 동적 생성 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 오늘의 단독 타로 카드 섹션 (Daily Draw) -->
+    <section id="daily-card-section" class="hidden">
+      <div class="card daily-draw-container">
+        <div class="section-header-mystic">
+          <h2>🌞 오늘의 운명 카드 한 장 (One-Card Draw)</h2>
+          <p>오늘 하루 나를 이끌어줄 럭키 메이저 아르카나 카드를 뽑아 긍정의 해답을 마주합니다.</p>
+        </div>
+
+        <!-- 단독 슬롯 -->
+        <div id="daily-card-slot">
+          <!-- 동적 카드 삽입 -->
+        </div>
+
+        <!-- 드로우 버튼 -->
+        <button type="button" id="btn-draw-daily" class="btn btn-primary">
+          🔮 오늘의 카드 한 장 뽑기
+        </button>
+      </div>
+
+      <!-- 데일리 분석 결과 박스 -->
+      <div id="daily-result-box" class="card result-section-mystic hidden">
+        <div class="result-header-mystic">
+          <h3>✍️ 오늘의 운세 리딩</h3>
+          <button type="button" id="btn-new-game-daily" class="btn btn-secondary">
+            🔄 다시 뽑기
+          </button>
+        </div>
+        <div class="readings-container">
+          <div class="reading-block">
+            <div class="daily-title-row">
+              <h4 id="daily-card-title">카드 이름</h4>
+              <span id="daily-card-state" class="direction-tag">정방향</span>
+            </div>
+            <div id="daily-card-keywords" class="keywords-row">
+              <!-- 키워드 배지 -->
+            </div>
+            <p id="daily-card-desc" class="meaning-detail">
+              상세 해석 내용이 들어갈 자리입니다.
+            </p>
+            <p id="daily-card-advice" class="advice-box">
+              오늘의 행운 비결이 노출되는 영역입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 타로 도감 섹션 (Guide/Encyclopedia) -->
+    <section id="guide-section" class="hidden">
+      <div class="card guide-container-mystic">
+        <div class="section-header-mystic" style="margin-bottom:2rem;">
+          <h2>📖 22장 메이저 아르카나 백과사전</h2>
+          <p>각 카드를 클릭하시면 정방향과 역방향의 상징적인 비밀의 의미와 행운의 조언을 깊이 감상하실 수 있습니다.</p>
+        </div>
+        <div id="guide-grid" class="guide-grid">
+          <!-- 22장 카드 썸네일 동적 삽입 -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 타로 상세 정보 모달창 -->
+  <div id="card-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="card-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="card-modal-title">카드 상세 정보</h3>
+        <button type="button" class="btn-close">&times;</button>
+      </div>
+      <div id="card-modal-details" class="modal-body-content">
+        <!-- 동적 카드 상세 설명 구조 삽입 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 영역 -->
+  <footer class="app-footer">
+    <p>&copy; 2026 미스틱 갤럭시 타로. All rights reserved. 한국어 공식 지원.</p>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
